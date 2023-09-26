@@ -1,0 +1,28 @@
+REP: 2018
+Title: Behavior Tree Control Nodes
+Author: Christian Henkel <christian.henkel2@de.bosch.com>, Davide Faconti <davide.faconti@gmail.com>, ...
+Status: Proposed
+Type: Informational
+Content-Type: text/x-rst
+Created: 26-Sept-2023
+Post-History: 
+
+Abstract
+========
+Behavior Trees are a powerful tool in robot programming.
+This document describes the behavior of commonly used control nodes.
+
+Motivation
+==========
+This REP is not intending to enforce a certain standard for every and all behavior tree implementation.
+Instead, the goal is to propose a common set of control nodes and their functionality in order to facilitate the analysis of behavior trees.
+This would allow the formal verification of a program written in a behavior tree language.
+Additionally, it allows static analysis of a given behavior tree, e.g. to detect deadlocks or infinite loops.
+
+Structure
+=========
+The document is structured as follows:
+- The first section describes the basic concepts of the execution of behavior trees.
+- The second section describes the control nodes, leaf nodes and decorators.
+- The third section describes requirements for the underlying actions and conditions that the leaf nodes interact with.
+
