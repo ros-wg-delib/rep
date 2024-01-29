@@ -140,7 +140,7 @@ Failure, the Reactive Sequence node does not route the ticks to the next
 child (if any). The symbol of the the Reactive Sequence node is a box
 containing the label  “:math:`\rightarrow`”, shown below.
 
-.. image:: imgs/react-sequence.png
+.. image:: rep-2018/react-sequence.png
    :alt: Reactive Sequence Node
 
 ::
@@ -180,7 +180,7 @@ Success, the Reactive Fallback node does not route the ticks to the
 next child (if any). The symbol of the the Reactive Fallback node is a 
 box containing the label “?”, shown below.
 
-.. image:: imgs/react-fallback.png
+.. image:: rep-2018/react-fallback.png
    :alt: Reactive Fallback Node
 
 ::
@@ -206,7 +206,7 @@ the ticks to the next child (if any). The symbol of the the Sequence
 with Memory node is a box containing the label “:math:`\rightarrow^*`”
 as shown below.
 
-.. image:: imgs/sequence-memory.png
+.. image:: rep-2018/sequence-memory.png
    :alt: Sequence with Memory Node
 
 ::
@@ -229,7 +229,7 @@ the ticks to the next child (if any). The symbol of the the Fallback
 with Memory node is a box containing the label “:math:`?^*`” as shown in
 below.
 
-.. image:: imgs/fallback-memory.png
+.. image:: rep-2018/fallback-memory.png
    :alt: Fallback with Memory Node
 
 ::
@@ -254,7 +254,7 @@ symbol of the the Parallel Sequence node with success treshold :math:`k`
 is a box containing the label
 “:math:`\rightrightarrows^{k}`”, shown below.
 
-.. image:: imgs/parallel.png
+.. image:: rep-2018/parallel.png
    :alt: Parallel Node
 
 ::
@@ -333,7 +333,7 @@ The Inverter node ticks the child once and return Success if the
 child failed or Failure if the child succeeded. If the child returns
 Running, this node returns Running too.
 
-.. image:: imgs/inverter.png
+.. image:: rep-2018/inverter.png
    :alt: Inverter Node
 
 ::
@@ -349,7 +349,7 @@ Running, this node returns Running too.
 The Force Success node, if the child returns Running, returns Running
 too. Otherwise, it returns always Success.
 
-.. image:: imgs/force_success.png
+.. image:: rep-2018/force_success.png
    :alt: Force Success Node
 
 ::
@@ -362,7 +362,7 @@ too. Otherwise, it returns always Success.
 The Force Failure node, if the child returns Running, returns Running
 too. Otherwise, it returns always Failure.
 
-.. image:: imgs/force_failure.png
+.. image:: rep-2018/force_failure.png
    :alt: Force Failure Node
 
 ::

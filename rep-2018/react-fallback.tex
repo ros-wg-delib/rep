@@ -1,0 +1,18 @@
+\documentclass[tikz,convert]{standalone}
+
+\include{common}
+
+\begin{document}
+
+\begin{tikzpicture}[BehaviorTree]
+	\graph{
+		ReactiveFallback -> {
+			child 1[Subtree],
+			child 2[Subtree],
+		};
+		ReactiveFallback ->[draw=none] dots/{\dots}[name=cdots],
+		ReactiveFallback -> child_n/child \(n\)[Subtree];
+	};
+\end{tikzpicture}
+
+\end{document}

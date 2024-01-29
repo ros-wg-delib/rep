@@ -1,0 +1,153 @@
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{
+	arrows.meta,
+	automata,
+	graphs,
+	graphdrawing,
+	graphs.standard,
+	positioning,
+	shapes.geometric,
+	trees
+}
+\usegdlibrary{
+	force,
+	trees,
+}
+
+\tikzset{ProgramGraph/.style={
+	spring electrical layout',
+	shorten >=1pt,
+	node distance=2.5cm,
+	auto,
+	on grid=true,
+	% convergence tolerance=0.001,
+	% cooling factor=0.99,
+	% spring constant=0.1,
+	% iterations=5000
+}}
+\tikzset{BehaviorTree/.style={tree layout, shorten >=2pt}}
+\tikzset{Subtree/.style={draw}}
+\tikzset{Action/.style={draw}}
+\tikzset{Condition/.style={ellipse,draw}}
+\tikzset{Decorator/.style={diamond}}
+
+\tikzgraphsset{
+	declare={ReactiveSequence}{
+		to/\(\rightarrow\)[
+			regular polygon,
+			regular polygon sides = 4,
+			inner sep = 0,
+			minimum size = 2.5em,
+			draw
+		]
+	}
+}
+
+\tikzgraphsset{
+	declare={SequenceMemory}{
+		to/\(\rightarrow^*\)[
+		% to/⇉[
+			regular polygon,
+			regular polygon sides = 4,
+			inner sep = 0,
+			minimum size = 2.5em,
+			draw
+		]
+	}
+}
+
+\tikzgraphsset{
+	declare={ParSequence}{
+		to/\(\rightrightarrows\)[
+		% to/⇉[
+			regular polygon,
+			regular polygon sides = 4,
+			inner sep = 0,
+			minimum size = 2.5em,
+			draw
+		]
+	}
+}
+
+\tikzgraphsset{
+	declare={ReactiveFallback}{
+		fb/?[
+			regular polygon,
+			regular polygon sides = 4,
+			inner sep = 0,
+			minimum size = 2.5em,
+			draw
+		]
+	}
+}
+
+\tikzgraphsset{
+	declare={FallbackMemory}{
+		to/\(?^*\)[
+		% to/⇉[
+			regular polygon,
+			regular polygon sides = 4,
+			inner sep = 0,
+			minimum size = 2.5em,
+			draw
+		]
+	}
+}
+
+\tikzgraphsset{
+	declare={ParFallback}{
+		fb/??[
+			regular polygon,
+			regular polygon sides = 4,
+			inner sep = 0,
+			minimum size = 2.5em,
+			draw
+		]
+	}
+}
+
+\tikzgraphsset{
+	successes/.code=\def\successes{#1},
+	failures/.code=\def\failures{#1},
+	declare={Parallel}{
+		to/\(\rightrightarrows^{\successes}_{\failures}\)[
+		% to/⇉[
+			regular polygon,
+			regular polygon sides = 4,
+			inner sep = 0,
+			minimum size = 2.5em,
+			draw
+		]
+	}
+}
+
+\tikzgraphsset{
+	declare={Inverter}{
+		inv/\(\lnot\)[
+			Decorator,
+			minimum size = 2.5em,
+			draw
+		]
+	}
+}
+
+\tikzgraphsset{
+	declare={ForceSuccess}{
+		fsucc/\(\top\)[
+			Decorator,
+			minimum size = 2.5em,
+			draw
+		]
+	}
+}
+
+\tikzgraphsset{
+	declare={ForceFailure}{
+		ffail/\(\bot\)[
+			Decorator,
+			minimum size = 2.5em,
+			draw
+		]
+	}
+}

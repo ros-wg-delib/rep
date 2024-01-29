@@ -1,0 +1,13 @@
+\documentclass[tikz,convert]{standalone}
+
+\include{common}
+
+\begin{document}
+
+\begin{tikzpicture}[BehaviorTree]
+    \graph{
+        ForceFailure -> child[Subtree];
+    };
+\end{tikzpicture}
+
+\end{document}

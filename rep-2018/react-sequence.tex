@@ -1,0 +1,18 @@
+\documentclass[tikz,convert]{standalone}
+
+\include{common}
+
+\begin{document}
+
+\begin{tikzpicture}[BehaviorTree]
+    \graph{
+        ReactiveSequence -> {
+            child 1[Subtree],
+            child 2[Subtree],
+        };
+        ReactiveSequence ->[draw=none] dots/{\dots}[name=cdots],
+        ReactiveSequence -> child_n/child \(n\)[Subtree];
+    };
+\end{tikzpicture}
+
+\end{document}

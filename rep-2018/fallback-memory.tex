@@ -1,0 +1,18 @@
+\documentclass[tikz,convert]{standalone}
+
+\include{common}
+
+\begin{document}
+
+\begin{tikzpicture}[BehaviorTree]
+    \graph{
+        FallbackMemory -> {
+            child 1[Subtree],
+            child 2[Subtree],
+        };
+        FallbackMemory ->[draw=none] dots/{\dots}[name=cdots],
+        FallbackMemory -> child_n/child \(n\)[Subtree];
+    };
+\end{tikzpicture}
+
+\end{document}

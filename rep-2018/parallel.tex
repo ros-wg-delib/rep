@@ -1,0 +1,18 @@
+\documentclass[tikz,convert]{standalone}
+
+\include{common}
+
+\begin{document}
+
+\begin{tikzpicture}[BehaviorTree]
+    \graph{
+        Parallel[successes=k, failures=h] -> {
+            child 1[Subtree],
+            child 2[Subtree],
+        };
+        Parallel[successes=k, failures=h] ->[draw=none] dots/{\dots}[name=cdots],
+        Parallel[successes=k, failures=h] -> child_n/child \(n\)[Subtree];
+    };
+\end{tikzpicture}
+
+\end{document}
