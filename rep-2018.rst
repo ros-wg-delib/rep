@@ -206,12 +206,6 @@ the ticks to the next child (if any). The symbol of the Sequence
 with Memory node is a box containing the label “:math:`\rightarrow^*`”
 as shown below.
 
-**TODO / FIXME**: In the context of BehaviorTree.CPP, the below pseudo-code is NOT 
-a representation of `Sequence`.
-
-- There is no mention of `toTick` being updated to 1 when Success is returned.
-- `Sequence` in BT.CPP will reset the `toTick` to 1 if a node returns Failure.
-
 .. image:: rep-2018/sequence-memory.png
    :alt: Sequence with Memory Node
 
