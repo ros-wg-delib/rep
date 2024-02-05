@@ -21,18 +21,18 @@ following:
 
 -  The execution starts by ticking the root node;
 
--  Control flow nodes activates when ticked and can propagate the tick
+-  Control flow nodes activate when ticked and can propagate the tick
    to their children;
 
--  Execution nodes activates when ticked and respond *Success*,
+-  Execution nodes activate when ticked and respond *Success*,
    *Failure*, or *Running*;
 
--  Control flow nodes receives responses from their children and decide
+-  Control flow nodes receive responses from their children and decide
    what to respond to their parents;
 
--  Finally, a response reach the root node, terminating the execution.
+-  Finally, a response reaches the root node, terminating the execution.
 
-Moreover, unlike behavior trees as used in, e.g., videogame developement,
+Moreover, unlike behavior trees as used in, e.g., videogame development,
 behavior trees in robotics need to handle concurrency.
 For this reason, we need to introduce a *halt* signal to interrupt
 the executions of conflicting concurrent actions.
@@ -102,7 +102,7 @@ We have the following types of control flow nodes:
 -  *Parallel*
 
 Beware that the nomenclature in the literature is inconsistent and might
-not correspond to the one defined in this document. In we present a
+not correspond to the one defined in this document. We present a
 nomenclature comparison between this document,
 [colledanchise2018]_, and [behavior_tree_cpp]_.
 
@@ -137,7 +137,7 @@ either Failure or Running, then it returns Failure or Running
 accordingly to its own parent. It returns Success if and only if all its
 children return Success. Note that when a child returns Running or
 Failure, the Reactive Sequence node does not route the ticks to the next
-child (if any). The symbol of the the Reactive Sequence node is a box
+child (if any). The symbol of the Reactive Sequence node is a box
 containing the label  “:math:`\rightarrow`”, shown below.
 
 .. image:: rep-2018/react-sequence.png
@@ -202,9 +202,15 @@ accordingly to its own parent. Moreover, if a node returns Running, the
 successive execution will restart from the same node. It returns Success
 if and only if all its children return Success. Note that when a child
 returns Running or Failure, the Sequence with Memory node does not route
-the ticks to the next child (if any). The symbol of the the Sequence
+the ticks to the next child (if any). The symbol of the Sequence
 with Memory node is a box containing the label “:math:`\rightarrow^*`”
 as shown below.
+
+**TODO / FIXME**: In the context of BehaviorTree.CPP, the below pseudo-code is NOT 
+a representation of `Sequence`.
+
+- There is no mention of `toTick` being updated to 1 when Success is returned.
+- `Sequence` in BT.CPP will reset the `toTick` to 1 if a node returns Failure.
 
 .. image:: rep-2018/sequence-memory.png
    :alt: Sequence with Memory Node
@@ -225,8 +231,8 @@ accordingly to its own parent. Moreover, if a node returns Running, the
 successive execution will restart from the same node. It returns Failure
 if and only if all its children return Failure. Note that when a child
 returns Running or Success, the Fallback with Memory node does not route
-the ticks to the next child (if any). The symbol of the the Fallback
-with Memory node is a box containing the label “:math:`?^*`” as shown in
+the ticks to the next child (if any). The symbol of the Fallback
+with Memory node is a box containing the label “:math:`?^*`” as shown
 below.
 
 .. image:: rep-2018/fallback-memory.png
@@ -245,12 +251,12 @@ below.
 			return response
 	return Failure
 
-The *(Reactive) Parallel* node with success treshold :math:`k`
+The *(Reactive) Parallel* node with success threshold :math:`k`
 executes (with :math:`k \leq n`), which corresponds to
-routing the ticks to all its children and it returns Success if at lease
+routing the ticks to all its children and it returns Success if at least
 :math:`k` children return Success, it returns Failure if at least
 :math:`n - k + 1` children return Failure, and it returns Running otherwise. The
-symbol of the the Parallel Sequence node with success treshold :math:`k`
+symbol of the Parallel Sequence node with success threshold :math:`k`
 is a box containing the label
 “:math:`\rightrightarrows^{k}`”, shown below.
 
@@ -277,13 +283,13 @@ is a box containing the label
 		return Running
 	
 .. Do we want this too?
-.. The *Parallel with Memory* node with success treshold :math:`k` and failure treshold
+.. The *Parallel with Memory* node with success threshold :math:`k` and failure threshold
 .. :math:`h` executes (with :math:`k+h-1 \leq n`), which corresponds to
-.. routing the ticks to all its running children and it returns Success if at lease
+.. routing the ticks to all its running children and it returns Success if at least
 .. :math:`k` children return Success, it returns Failure if at least
 .. :math:`h` children return Failure, and it returns Running otherwise. The
-.. symbol of the the Parallel Sequence node with success treshold :math:`k`
-.. and failure treshold :math:`h` is a box containing the label
+.. symbol of the Parallel Sequence node with success threshold :math:`k`
+.. and failure threshold :math:`h` is a box containing the label
 .. “:math:`\rightrightarrows^{k}_{h}`”, shown below.
 	
 .. 	successCount ← 0
