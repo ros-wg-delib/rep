@@ -211,6 +211,11 @@ as shown below.
 
 ::
 
+In the following pseudocode and the one for *Fallback with Memory*, the
+function *toTickFromLastIteration* returns the value of the variable toTick
+from the last iteration of this control flow node. If it is the first
+iteration, it returns 1.
+
 	toTick ← toTickFromLastIteration();
 	for j ← toTick to n do
 		response ← child(j).tick()
