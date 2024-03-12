@@ -216,6 +216,7 @@ as shown below.
 		response ← child(j).tick()
 		if response != Success then
 			return response
+   toTick ← 1
 	return Success
 
 The *Fallback with Memory* node executes, which corresponds to routing
@@ -243,6 +244,7 @@ below.
 		response ← child(j).tick()
 		if response != Failure then
 			return response
+   toTick ← 1
 	return Failure
 
 The *(Reactive) Parallel* node with success threshold :math:`k`
