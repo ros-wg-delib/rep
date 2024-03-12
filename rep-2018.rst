@@ -211,11 +211,17 @@ as shown below.
 
 ::
 
+In the following pseudocode and the one for *Fallback with Memory*, the
+function *toTickFromLastIteration* returns the value of the variable toTick
+from the last iteration of this control flow node. If it is the first
+iteration, it returns 1.
+
 	toTick ← toTickFromLastIteration();
 	for j ← toTick to n do
 		response ← child(j).tick()
 		if response != Success then
 			return response
+   toTick ← 1
 	return Success
 
 The *Fallback with Memory* node executes, which corresponds to routing
@@ -243,6 +249,7 @@ below.
 		response ← child(j).tick()
 		if response != Failure then
 			return response
+   toTick ← 1
 	return Failure
 
 The *(Reactive) Parallel* node with success threshold :math:`k`
